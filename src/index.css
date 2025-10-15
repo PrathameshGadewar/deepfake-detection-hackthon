@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 189 100% 95%;
+
+    --card: 220 45% 8%;
+    --card-foreground: 189 100% 95%;
+
+    --popover: 220 45% 8%;
+    --popover-foreground: 189 100% 95%;
+
+    --primary: 189 94% 50%;
+    --primary-foreground: 220 45% 8%;
+
+    --secondary: 174 84% 45%;
+    --secondary-foreground: 220 45% 8%;
+
+    --muted: 220 30% 18%;
+    --muted-foreground: 189 20% 70%;
+
+    --accent: 189 94% 50%;
+    --accent-foreground: 220 45% 8%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 189 100% 95%;
+
+    --border: 220 30% 18%;
+    --input: 220 30% 18%;
+    --ring: 189 94% 50%;
+
+    --radius: 0.75rem;
+
+    --success: 142 76% 45%;
+    --warning: 38 92% 50%;
+    --info: 189 94% 50%;
+
+    --neon-glow: 189 94% 50%;
+    --neon-secondary: 174 84% 45%;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(189, 94%, 50%), hsl(174, 84%, 45%));
+    --gradient-card: linear-gradient(180deg, hsl(220, 45%, 10%), hsl(220, 45%, 8%));
+    --gradient-danger: linear-gradient(135deg, hsl(0, 72%, 51%), hsl(14, 86%, 55%));
+    
+    --shadow-neon: 0 0 20px hsla(189, 94%, 50%, 0.3);
+    --shadow-neon-strong: 0 0 30px hsla(189, 94%, 50%, 0.5);
+    --shadow-card: 0 8px 32px hsla(0, 0%, 0%, 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  @keyframes scan {
+    0%, 100% { transform: translateY(-100%); opacity: 0; }
+    10%, 90% { opacity: 0.8; }
+    50% { transform: translateY(100%); opacity: 1; }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsla(189, 94%, 50%, 0.3); }
+    50% { box-shadow: 0 0 40px hsla(189, 94%, 50%, 0.6); }
+  }
+
+  @keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -1000px 0; }
+    100% { background-position: 1000px 0; }
+  }
+
+  .scan-effect {
+    animation: scan 3s ease-in-out infinite;
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .rotate-slow {
+    animation: rotate 20s linear infinite;
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsla(189, 94%, 50%, 0.2) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 3s infinite;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
